@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Review App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Book List</h1>
+  <div id="book-list"></div>
+
+  <h2>Add New Book</h2>
+  <input type="text" id="title" placeholder="Title" />
+  <input type="text" id="author" placeholder="Author" />
+  <button onclick="addBook()">Add</button>
+
+  <script src="script.js"></script>
+  <ul id="bookList"></ul>
+
+<!-- Template for each book -->
+<script type="text/template" id="bookTemplate">
+  <li>
+    <span><strong>{title}</strong> by {author}</span>
+    <button onclick="deleteBook({id})">Delete</button>
+
+    <!-- Reviews section -->
+    <ul id="reviews-{id}"></ul>
+
+    <form onsubmit="addReview(event, {id})">
+      <input type="text" placeholder="Comment" id="comment-{id}" required />
+      <input type="number" min="1" max="5" id="rating-{id}" required />
+      <button type="submit">Add Review</button>
+    </form>
+  </li>
+</script>
+  
+</body>
+</html>
